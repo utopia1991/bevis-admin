@@ -7,8 +7,8 @@ import VueRouter from 'vue-router'
 import store from './vuex/store'
 import Vuex from 'vuex'
 import routes from './router/routes'
-// import Mock from './mock' // mock 模拟数据，当真实请求的时候关闭mock
-// Mock.bootstrap() // mock 用来模拟数据，当真实请求的时候关闭mock
+import Mock from './mock' // mock 模拟数据，当真实请求的时候关闭mock
+Mock.bootstrap() // mock 用来模拟数据，当真实请求的时候关闭mock
 
 Vue.use(ElementUI) // 使用 elment UI
 Vue.use(VueRouter)

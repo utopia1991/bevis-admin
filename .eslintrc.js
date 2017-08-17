@@ -28,6 +28,6 @@ module.exports = {
     // 命名为驼峰式：关闭
     'camelcase': 0,
     // 定义变量不被应用：关闭
-    // 'no-unused-vars': 0
+    'no-unused-vars': 0
   }
 }

@@ -22,7 +22,7 @@
 </template>
 
 <script>
-  import { requestLogin } from '../api/api'
+  import { requestLogin, requestLoginMock } from '../api/api'
   import '../assets/js/MD5'
 
   export default {
@@ -52,12 +52,12 @@
           if (valid) {
             this.logining = true
 
-            var loginParams = {
+            // 本地 mock 使用开始
+            var loginParamsMock = {
               login_name: this.ruleForm.account,
-              password: window.getMD5Value(this.ruleForm.checkPass)
+              password: this.ruleForm.checkPass
             }
-
-            requestLogin(loginParams).then(res => {
+            requestLoginMock(loginParamsMock).then(res => {
               this.logining = false
 
               if (res === 500) {
@@ -80,6 +80,36 @@
                 })
               }
             })
+            // 本地 mock 使用结束
+
+            // 本地跨域开发使用
+            // var loginParams = {
+            //   login_name: this.ruleForm.account,
+            //   password: window.getMD5Value(this.ruleForm.checkPass)
+            // }
+            // requestLogin(loginParams).then(res => {
+            //   this.logining = false
+            //
+            //   if (res === 500) {
+            //     this.$message({
+            //       message: res.message,
+            //       type: 'error'
+            //     })
+            //   }
+            //
+            //   if (res.status === 200) {
+            //     // 登陆成功之后将返回的data存入localStorage
+            //     let curTime = 30 * 60 * 1000
+            //     localStorage.setItem('user', JSON.stringify({data: res.data, time: curTime}))
+            //     // 登陆之后跳转到主页
+            //     this.$router.push({ path: '/index' })
+            //   } else {
+            //     this.$message({
+            //       message: '发送失败',
+            //       type: 'error'
+            //     })
+            //   }
+            // })
           }
         })
       }

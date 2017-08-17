@@ -16,6 +16,13 @@ export const requestLogin = params => {
     })
 }
 
+// Login 页面，mock 使用
+export const requestLoginMock = params => {
+  return axios.post(`${base}/login`, {
+    params: params
+  })
+}
+
 // Basic 页面，获取 userid
 export const getUserId = (params) => {
   return axiosRequest({
