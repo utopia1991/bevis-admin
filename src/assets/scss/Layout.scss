@@ -1,0 +1,178 @@
+@import './Base.scss';
+
+.container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+
+  .header {
+    height: 60px;
+    line-height: 60px;
+    background: $color-dark-blue;
+    color: #fff;
+
+    .el-menu-demo {
+      float: left;
+    }
+
+    .userinfo-inner {
+      cursor: pointer;
+      color: #fff;
+
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        margin: 10px 0 10px 10px;
+        float: right;
+      }
+    }
+
+    .userinfo {
+      text-align: right;
+      float: left;
+
+      .username {
+        margin: 0 20px;
+      }
+
+      .logout {
+        float: right;
+        text-align: center;
+        border-left: 1px solid $color-border;
+        cursor: pointer;
+        height: 60px;
+        line-height: 60px;
+        border-bottom: 5px solid $color-dark-blue;
+        transition: border-bottom 0.3s, background-color 0.3s;
+
+        &:hover {
+          background-color: $color-light-blue;
+          border-bottom: 5px solid #20a0ff;
+        }
+      }
+    }
+
+    .logo {
+      height: 60px;
+      font-size: 22px;
+      padding-left: 20px;
+      padding-right: 20px;
+      border-color: rgba(238,241,146,0.3);
+      border-right-width: 1px;
+      border-right-style: solid;
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+
+      img {
+        width: 40px;
+        float: left;
+        margin: 10px 10px 10px 18px;
+      }
+
+      .txt {
+        color: #fff;
+      }
+    }
+
+    .logo-width {
+      background-color: $color-dark-blue;
+      background: url("../assets/images/logo.png") center;
+      background-size: contain;
+    }
+
+    .logo-collapse-width {
+      width: 60px;
+    }
+
+    .tools {
+      float: left;
+      padding: 0 23px;
+      width: 14px;
+      height: 60px;
+      line-height: 60px;
+      cursor: pointer;
+    }
+  }
+
+  .main {
+    display: flex;
+    position: absolute;
+    top: 60px;
+    bottom: 0;
+    overflow: hidden;
+
+    .aside {
+      background-color: $color-dark-blue;
+
+      .el-menu {
+        height: 100%;
+      }
+
+      .vertical-submenu {
+        border-color: $color-border;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+      }
+
+      .collapsed {
+        width: 60px;
+
+        .item {
+          position: relative;
+        }
+
+        .el-submenu__title {
+          padding-left: 20px;
+        }
+
+        .submenu {
+          position: absolute;
+          top: 0;
+          left: 60px;
+          z-index: 99999;
+          height: auto;
+          display: none;
+        }
+      }
+    }
+
+    .menu-collapsed {
+      flex: 0 0 60px;
+      width: 60px;
+    }
+
+    .menu-expanded {
+      flex: 0 0 230px;
+      width: 230px;
+
+      .el-menu-vertical-demo {
+        width: 100% !important;
+      }
+    }
+
+    .content-container {
+      flex: 1;
+      overflow-y: scroll;
+      padding: 20px;
+
+      .breadcrumb-container {
+        .title {
+          width: 200px;
+          float: left;
+          color: #475669;
+        }
+
+        .breadcrumb-inner {
+          float: right;
+        }
+      }
+
+      .content-wrapper {
+        background-color: #fff;
+        box-sizing: border-box;
+      }
+    }
+  }
+}
