@@ -3,7 +3,7 @@
 </style>
 
 <template>
-  <section class="bg">
+  <section class="bg" @keypress="show($event)">
     <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-position="left" label-width="0px" class="demo-ruleForm login-container">
       <h3 class="title">系统登录</h3>
       <el-form-item prop="account">
@@ -44,6 +44,11 @@
       }
     },
     methods: {
+      show (ev) {
+        if (ev.keyCode === 13) {
+          this.handleSubmit('ruleForm')
+        }
+      },
       handleReset (ruleForm) {
         this.$refs[ruleForm].resetFields()
       },
@@ -60,14 +65,14 @@
             requestLoginMock(loginParamsMock).then(res => {
               this.logining = false
 
-              if (res === 500) {
+              if (res.data.code === 500) {
                 this.$message({
-                  message: res.message,
+                  message: res.data.msg,
                   type: 'error'
                 })
               }
 
-              if (res.status === 200) {
+              if (res.data.code === 200) {
                 // 登陆成功之后将返回的data存入localStorage
                 let curTime = 30 * 60 * 1000
                 localStorage.setItem('user', JSON.stringify({data: res.data, time: curTime}))
@@ -75,7 +80,7 @@
                 this.$router.push({ path: '/index' })
               } else {
                 this.$message({
-                  message: '发送失败',
+                  message: res.data.msg,
                   type: 'error'
                 })
               }
@@ -105,7 +110,7 @@
             //     this.$router.push({ path: '/index' })
             //   } else {
             //     this.$message({
-            //       message: '发送失败',
+            //       message: res.message,
             //       type: 'error'
             //     })
             //   }

@@ -23,6 +23,10 @@ a {
 
   .menu-items {
     color: $color-white;
+
+    &:hover {
+      color: $color-white;
+    }
   }
 
   i {

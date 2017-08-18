@@ -20,14 +20,16 @@ export default {
       msg: 'failure'
     })
 
-    // 登录
+    // 模拟登录
     mock.onPost('/login').reply(config => {
-      let {username, password} = JSON.parse(config.data)
+      let {params} = JSON.parse(config.data)
+      let {login_name, password} = params
+
       return new Promise((resolve, reject) => {
         let user = null
         setTimeout(() => {
           let hasUser = LoginUsers.some(u => {
-            if (u.username === username && u.password === password) {
+            if (u.username === login_name && u.password === password) {
               user = JSON.parse(JSON.stringify(u))
               user.password = undefined
               return true
@@ -61,13 +63,13 @@ export default {
 
     // 获取用户列表（分页）
     mock.onGet('/user/listpage').reply(config => {
-      let {page, name} = config.params
+      let {page, name, pageCount} = config.params
       let mockUsers = _Users.filter(user => {
         if (name && user.name.indexOf(name) === -1) return false
         return true
       })
       let total = mockUsers.length
-      mockUsers = mockUsers.filter((u, index) => index < 20 * page && index >= 20 * (page - 1))
+      mockUsers = mockUsers.filter((u, index) => index < pageCount * page && index >= pageCount * (page - 1))
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve([200, {

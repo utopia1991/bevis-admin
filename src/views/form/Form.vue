@@ -60,14 +60,14 @@
     data () {
       return {
         ruleForm: {
-          name: '',
-          region: '',
-          date1: '',
-          date2: '',
-          delivery: false,
-          type: [],
-          resource: '',
-          desc: ''
+          name: '', // 活动名称
+          region: '', // 活动区域
+          date1: '', // 活动时间1
+          date2: '', // 活动时间2
+          delivery: false, // 是否即时配送
+          type: [], // 活动性质
+          resource: '', // 特殊资源
+          desc: '' // 活动形式
         },
         // Form 组件提供了表单验证的功能，只需要通过 rule 属性传入约定的验证规则
         // 并 Form-Item 的 prop 属性设置为需校验的字段名即可
@@ -101,7 +101,15 @@
       submitForm (formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            alert('submit!')
+            console.log('e1', this.ruleForm.name)
+            console.log('e2', this.ruleForm.region)
+            console.log('e3', this.ruleForm.date1)
+            console.log('e4', this.ruleForm.date2)
+            console.log('e5', this.ruleForm.delivery)
+            console.log('e6', this.ruleForm.type)
+            console.log('e7', this.ruleForm.resource)
+            console.log('e8', this.ruleForm.desc)
+            console.log('submit!')
           } else {
             console.log('error submit!!')
             return false

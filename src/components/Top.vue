@@ -11,8 +11,8 @@
           <i class="fa fa-home"></i>
           <router-link to="/" class="menu-items">主页</router-link>
         </el-menu-item>
-        <el-submenu index="2">
-          <template slot="title">
+        <el-menu-item index="2">
+          <!-- <template slot="title">
             <i class="fa fa-files-o"></i>
             <span class="menu-items">项目</span>
           </template>
@@ -24,8 +24,26 @@
           </el-menu-item>
           <el-menu-item index="2-3">
             <router-link to="/">选项3</router-link>
-          </el-menu-item>
-        </el-submenu>
+          </el-menu-item> -->
+          <el-dropdown>
+            <span class="el-dropdown-link" style="color:#fff;">
+              <i class="fa fa-files-o"></i>
+              下拉菜单
+              <i class="el-icon-caret-bottom el-icon--right"></i>
+            </span>
+            <el-dropdown-menu slot="dropdown">
+              <router-link to="/">
+                <el-dropdown-item>黄金糕</el-dropdown-item>
+              </router-link>
+              <router-link to="/">
+                <el-dropdown-item>狮子头</el-dropdown-item>
+              </router-link>
+              <router-link to="/">
+                <el-dropdown-item>螺蛳粉</el-dropdown-item>
+              </router-link>
+            </el-dropdown-menu>
+          </el-dropdown>
+        </el-menu-item>
         <el-menu-item index="3">
           <i class="fa fa-cog"></i>
           <router-link to="/" class="menu-items">插件</router-link>

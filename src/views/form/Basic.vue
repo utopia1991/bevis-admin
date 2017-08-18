@@ -141,6 +141,7 @@
         console.log('授权请求成功：', res)
       }).catch(err => {
         console.log('请求失败', err)
+        this.$router.push({ path: '/login' })
       })
     }
   }

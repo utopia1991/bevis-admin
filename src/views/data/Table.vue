@@ -55,7 +55,7 @@
         @current-change='handleCurrentChange'
         :current-page='currentPage'
         :page-sizes='[10, 20, 30, 40]'
-        :page-size='20'
+        :page-size='pageCount'
         layout='total, sizes, prev, pager, next, jumper'
         :total='total'
         style='float:right;'>
@@ -133,6 +133,7 @@
         users: [],
         total: 0,
         page: 1,
+        pageCount: 20,
         listLoading: false,
         currentPage: 1,
         sels: [], // 列表选中列
@@ -172,20 +173,24 @@
     methods: {
       handleSizeChange (val) {
         console.log(`每页 ${val} 条`)
+        this.pageCount = val
+        this.getUsers(this.page, this.name, this.pageCount)
       },
       // 性别显示转换
       formatSex: function (row, column) {
         return row.sex === 1 ? '男' : row.sex === 0 ? '女' : '未知'
       },
       handleCurrentChange (val) {
+        console.log(`切换到 ${val} 页`)
         this.page = val
-        this.getUsers()
+        this.getUsers(this.page, this.name, this.pageCount)
       },
       // 获取用户列表
       getUsers () {
         let para = {
           page: this.page,
-          name: this.filters.name
+          name: this.filters.name,
+          pageCount: this.pageCount
         }
         this.listLoading = true
         getUserListPage(para).then((res) => {
