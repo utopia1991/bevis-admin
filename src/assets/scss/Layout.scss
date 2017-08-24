@@ -9,11 +9,29 @@
   .header {
     height: 60px;
     line-height: 60px;
-    background: $color-dark-blue;
+    background: $color-blue;
     color: #fff;
 
     .el-menu-demo {
       float: left;
+
+      .el-menu-item {
+        line-height: 54px;
+        border-top: 4px solid $color-blue;
+        border-right: 1px solid $color-border;
+        border-bottom: none;
+
+        &:hover {
+          border-bottom: none;
+          background-color: $color-dark-blue;
+          border-top: 4px solid $color-hover;
+        }
+
+        &.is-active {
+          background-color: $color-dark-blue;
+          border-top: 4px solid $color-hover;
+        }
+      }
     }
 
     .userinfo-inner {
@@ -43,13 +61,13 @@
         border-left: 1px solid $color-border;
         cursor: pointer;
         height: 60px;
-        line-height: 60px;
-        border-bottom: 5px solid $color-dark-blue;
+        line-height: 54px;
         transition: border-bottom 0.3s, background-color 0.3s;
+        border-top: 4px solid $color-blue;
 
         &:hover {
-          background-color: $color-light-blue;
-          border-bottom: 5px solid #20a0ff;
+          background-color: $color-dark-blue;
+          border-top: 4px solid $color-hover;
         }
       }
     }
@@ -77,7 +95,7 @@
     }
 
     .logo-width {
-      background-color: $color-dark-blue;
+      background-color: $color-blue;
       background: url("../assets/images/logo.png") center;
       background-size: contain;
       background-repeat: no-repeat;
@@ -105,16 +123,18 @@
     overflow: hidden;
 
     .aside {
-      background-color: $color-dark-blue;
+      background-color: $color-blue;
 
       .el-menu {
         height: 100%;
       }
 
       .vertical-submenu {
-        border-color: $color-border;
-        border-bottom-width: 1px;
-        border-bottom-style: solid;
+        border-bottom: 1px solid $color-border;
+
+        .new-submenu {
+          padding-left: 50px !important;
+        }
       }
 
       .collapsed {
@@ -166,7 +186,9 @@
         }
 
         .breadcrumb-inner {
-          float: right;
+          float: left;
+          font-size: 16px;
+          margin-bottom: 20px;
         }
       }
 

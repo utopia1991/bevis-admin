@@ -44,15 +44,40 @@ body {
 }
 // 覆盖dark-theme
 
-.el-menu--dark .el-menu-item:hover,
-.el-menu--dark .el-submenu .el-menu .el-menu-item:hover,
-.el-menu--dark .el-submenu__title:hover,
-.el-menu--horizontal.el-menu--dark .el-menu-item:hover,
-.el-menu--horizontal.el-menu--dark .el-submenu__title:hover,
-.el-submenu .el-menu-item.is-active {
-	background-color: $color-light-blue;
+.el-menu--dark .el-menu-item {
+	border-bottom: 1px solid $color-border;
+	color: $color-white;
+
+	&:hover {
+		background-color: $color-hover;
+	}
 }
 
+.el-menu--dark .el-submenu .el-menu .el-menu-item:hover,
+.el-menu--horizontal.el-menu--dark .el-submenu__title:hover,
+.el-submenu .el-menu-item.is-active {
+	background-color: $color-hover;
+}
+
+.el-menu--dark .el-submenu__title:hover {
+	background-color: $color-blue;
+}
+// 竖直nav二级菜单
+
+.el-menu--horizontal.el-menu--dark .el-menu-item:hover,
 .el-submenu .el-menu-item {
 	background-color: $color-dark-blue;
+}
+
+.el-menu {
+	background: $color-blue;
+
+	.menu-items {
+		color: $color-white;
+	}
+
+	i {
+		color: $color-white;
+		font-size: 16px;
+	}
 }

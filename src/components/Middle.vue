@@ -11,14 +11,14 @@
           <el-submenu :index="index+''" v-if="!item.leaf" class="vertical-submenu">
             <template slot="title">
               <i :class="item.iconCls"></i>
-              <span class="menu-items">{{item.name}}</span>
+              <span class="menu-items">{{item.title}}</span>
             </template>
             <el-menu-item v-for="child in item.children" :index="child.path" :key="child.path" v-if="!child.hidden" class="new-submenu">
-              <span class="menu-items">{{child.name}}</span>
+              <span class="menu-items">{{child.title}}</span>
             </el-menu-item>
           </el-submenu>
           <el-menu-item v-if="item.leaf&&item.children.length>0" :index="item.children[0].path">
-            <i :class="item.iconCls"></i>{{item.children[0].name}}
+            <i :class="item.iconCls"></i>{{item.children[0].title}}
           </el-menu-item>
         </template>
       </el-menu>
@@ -26,7 +26,6 @@
     <el-col class="content-container" :span="20">
       <div class="grid-content bg-purple-light">
         <el-col :span="24" class="breadcrumb-container">
-          <strong class="title">{{$route.name}}</strong>
           <el-breadcrumb separator="/" class="breadcrumb-inner">
             <el-breadcrumb-item v-for="item in $route.matched" :key="item.path">
               {{ item.name }}

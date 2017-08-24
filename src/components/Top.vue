@@ -12,19 +12,6 @@
           <router-link to="/" class="menu-items">主页</router-link>
         </el-menu-item>
         <el-menu-item index="2">
-          <!-- <template slot="title">
-            <i class="fa fa-files-o"></i>
-            <span class="menu-items">项目</span>
-          </template>
-          <el-menu-item index="2-1">
-            <router-link to="/">选项1</router-link>
-          </el-menu-item>
-          <el-menu-item index="2-2">
-            <router-link to="/">选项2</router-link>
-          </el-menu-item>
-          <el-menu-item index="2-3">
-            <router-link to="/">选项3</router-link>
-          </el-menu-item> -->
           <el-dropdown>
             <span class="el-dropdown-link" style="color:#fff;">
               <i class="fa fa-files-o"></i>
@@ -49,7 +36,7 @@
           <router-link to="/" class="menu-items">插件</router-link>
         </el-menu-item>
       </el-menu>
-      <el-dropdown :span="3" trigger="hover" class="username">
+      <el-dropdown :span="2" trigger="hover" class="username">
         <span class="el-dropdown-link userinfo-inner">
           {{sysUserName}}
         </span>
@@ -59,8 +46,8 @@
         </el-dropdown-menu>
       </el-dropdown>
       <el-tooltip class="item" effect="dark" content="退出登录" placement="bottom-end">
-        <el-col :span="1" @click.native="logout" class="logout">
-          <i class="fa fa-circle-o-notch"></i>
+        <el-col :span="2" @click.native="logout" class="logout">
+          <i class="fa fa-circle-o-notch"></i>&nbsp;&nbsp;退出
         </el-col>
       </el-tooltip>
     </el-col>
