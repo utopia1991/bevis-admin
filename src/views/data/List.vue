@@ -108,7 +108,10 @@
             this.getUsers()
           })
         }).catch(() => {
-
+          this.$message({
+            message: '发送请求失败',
+            type: 'error'
+          })
         })
       },
       // 性别显示转换
@@ -124,6 +127,11 @@
         getUserList(para).then((res) => {
           this.users = res.data.users
           this.loading = false
+        }).catch(() => {
+          this.$message({
+            message: '发送请求失败',
+            type: 'error'
+          })
         })
       }
     },

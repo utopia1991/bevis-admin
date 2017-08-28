@@ -197,6 +197,11 @@
           this.total = res.data.total
           this.users = res.data.users
           this.listLoading = false
+        }).catch(() => {
+          this.$message({
+            message: '发送请求失败',
+            type: 'error'
+          })
         })
       },
       // 删除
@@ -215,7 +220,10 @@
             this.getUsers()
           })
         }).catch(() => {
-
+          this.$message({
+            message: '发送请求失败',
+            type: 'error'
+          })
         })
       },
       // 显示编辑界面

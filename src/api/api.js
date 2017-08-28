@@ -2,17 +2,18 @@ import axios from 'axios'
 import {axiosRequest} from './ajax'
 
 let base = ''
-let hostName = 'http://10.8.115.107:8080'
 
 // Login 页面，用户登陆接口
 export const requestLogin = params => {
-  return axios.post('/users/login', params)
+  // let loginUrl = '/rct/serverinfo/server-info!list.action'
+  let loginUrl = '/users/login'
+  return axios.post(loginUrl, params)
     .then(res => {
       console.log('返回数据: ', res)
       return res
     }).catch(err => {
       console.log('请求失败: ', err)
-      return 500
+      return err
     })
 }
 
@@ -28,7 +29,6 @@ export const getUserId = (params) => {
   return axiosRequest({
     method: 'get',
     uri: '/oauth/user',
-    host: hostName,
     params: params
   }).then(res => {
     return res

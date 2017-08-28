@@ -36,6 +36,13 @@ module.exports = {
           '^/oauth': '/oauth'
         }
       },
+      '/rct': {
+        target: 'http://10.8.115.74:60008',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/rct': '/rct'
+        }
+      },
       '/users': {
         target: 'http://10.8.115.107:8080',
         changeOrigin: true,

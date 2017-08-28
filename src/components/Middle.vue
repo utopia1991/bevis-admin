@@ -4,25 +4,11 @@
 
 <template>
   <el-col :span="24" class="main">
+    <!--导航菜单-->
     <el-col :span="4" class="aside">
-      <!--导航菜单-->
-      <el-menu theme="dark" :default-active="$route.path" class="el-menu-vertical-demo" @open="handleopen" @close="handleclose" @select="handleselect" unique-opened router>
-        <template v-for="(item,index) in $router.options.routes" v-if="!item.hidden">
-          <el-submenu :index="index+''" v-if="!item.leaf" class="vertical-submenu">
-            <template slot="title">
-              <i :class="item.iconCls"></i>
-              <span class="menu-items">{{item.title}}</span>
-            </template>
-            <el-menu-item v-for="child in item.children" :index="child.path" :key="child.path" v-if="!child.hidden" class="new-submenu">
-              <span class="menu-items">{{child.title}}</span>
-            </el-menu-item>
-          </el-submenu>
-          <el-menu-item v-if="item.leaf&&item.children.length>0" :index="item.children[0].path">
-            <i :class="item.iconCls"></i>{{item.children[0].title}}
-          </el-menu-item>
-        </template>
-      </el-menu>
+      <MiddelNav></MiddelNav>
     </el-col>
+    <!-- 页面主体部分 -->
     <el-col class="content-container" :span="20">
       <div class="grid-content bg-purple-light">
         <el-col :span="24" class="breadcrumb-container">
@@ -34,7 +20,6 @@
         </el-col>
         <el-col :span="24" class="content-wrapper">
           <transition name="fade" mode="out-in">
-            <!-- 页面主体部分 -->
             <router-view></router-view>
           </transition>
         </el-col>
@@ -44,6 +29,8 @@
 </template>
 
 <script>
+  import MiddelNav from './MiddleNav'
+
   export default {
     data () {
       return {
@@ -59,15 +46,10 @@
         }
       }
     },
+    components: {
+      MiddelNav
+    },
     methods: {
-      handleopen () {
-        console.log('handleopen')
-      },
-      handleclose () {
-        console.log('handleclose')
-      },
-      handleselect: function (a, b) {
-      }
     }
   }
 </script>

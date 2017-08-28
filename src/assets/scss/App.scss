@@ -42,9 +42,9 @@ body {
 .fade-leave-active {
 	opacity: 0;
 }
-// 覆盖dark-theme
+// 覆盖element原有样式
 
-.el-menu--dark .el-menu-item {
+.el-menu-item {
 	border-bottom: 1px solid $color-border;
 	color: $color-white;
 
@@ -53,18 +53,23 @@ body {
 	}
 }
 
-.el-menu--dark .el-submenu .el-menu .el-menu-item:hover,
-.el-menu--horizontal.el-menu--dark .el-submenu__title:hover,
+.el-menu--horizontal .el-submenu__title:hover,
+.el-submenu .el-menu .el-menu-item:hover,
 .el-submenu .el-menu-item.is-active {
 	background-color: $color-hover;
 }
 
-.el-menu--dark .el-submenu__title:hover {
+.el-submenu__title:hover {
 	background-color: $color-blue;
 }
-// 竖直nav二级菜单
 
-.el-menu--horizontal.el-menu--dark .el-menu-item:hover,
+.el-menu--horizontal .el-menu-item a,
+.el-menu--horizontal .el-menu-item a:hover,
+.el-menu-item.is-active {
+	color: $color-white;
+}
+
+.el-menu--horizontal .el-menu-item:hover,
 .el-submenu .el-menu-item {
 	background-color: $color-dark-blue;
 }
